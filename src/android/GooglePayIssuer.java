@@ -148,8 +148,8 @@ public class GooglePayIssuer extends CordovaPlugin {
           String tsp = null;
           String lastDigits = null;
           try {
-            tsp = args.getString(1);
-            lastDigits = args.getString(3);
+            tsp = args.getString(0);
+            lastDigits = args.getString(1);
 
             isTokenized(tsp, lastDigits, callbackContext);
           } catch (JSONException e) {
