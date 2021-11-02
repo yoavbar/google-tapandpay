@@ -124,10 +124,30 @@ GooglePayIssuer.prototype.pushProvision = function (opc, tsp, clientName, lastDi
         onSuccess(obj);
     };
 
-    console.log("pushProvision JS PLUGIN");
-
     exec(successCallback, errorCallback, 'GooglePayIssuer', 'pushProvision', [opc, tsp, clientName, lastDigits, address]);
 };
+
+/**
+ * Get the isTokenized boolean
+ *
+ * @param [ string ] tsp The token service provider. VISA or MASTER
+ * @param [ string ] lastDigits The last 4 digits of card.
+ *
+ * @return [ Boolean ] card isTokenized
+ */
+GooglePayIssuer.prototype.isTokenized = function (tsp, lastDigits, onSuccess, onError) {
+    var errorCallback = function (obj) {
+        onError(obj);
+    };
+
+    var successCallback = function (obj) {
+        onSuccess(obj);
+    };
+
+    exec(successCallback, errorCallback, 'GooglePayIssuer', 'isTokenized', [tsp, lastDigits]);
+};
+
+
 
 if (typeof module != 'undefined' && module.exports) {
     module.exports = GooglePayIssuer;
