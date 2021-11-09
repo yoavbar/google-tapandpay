@@ -370,8 +370,8 @@ public class GooglePayIssuer extends CordovaPlugin {
       Log.i(TAG, "isTokenized");
 
       int cardNetwork = (tsp.equals("VISA")) ? TapAndPay.CARD_NETWORK_VISA : TapAndPay.CARD_NETWORK_MASTERCARD;
+      int tokenServiceProvider = (tsp.equals("VISA")) ? TapAndPay.TOKEN_PROVIDER_VISA : TapAndPay.TOKEN_PROVIDER_MASTERCARD;
 
-      int tokenServiceProvider = 0;
       IsTokenizedRequest request = new IsTokenizedRequest.Builder()
         .setIdentifier(lastDigits)
         .setNetwork(cardNetwork)
