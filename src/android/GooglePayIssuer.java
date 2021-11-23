@@ -361,6 +361,7 @@ public class GooglePayIssuer extends CordovaPlugin {
       tapAndPayClient.pushTokenize(this.cordova.getActivity(), pushTokenizeRequest, REQUEST_CODE_PUSH_TOKENIZE);
     } catch (Exception e) {
       Log.i(TAG, e.getMessage());
+      callbackContext.error("error with pushTokenize params");
     }
   }
 
@@ -412,6 +413,7 @@ public class GooglePayIssuer extends CordovaPlugin {
 
     } catch (Exception e) {
       Log.i(TAG, e.getMessage());
+      callbackContext.error("error with isTokenized params");
     }
   }
 
