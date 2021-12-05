@@ -72,7 +72,7 @@ public class GooglePayIssuer extends CordovaPlugin {
         @Override
         public void run() {
           createWallet();
-          callbackContext.success(true);
+          callbackContext.success("true");
         }
       });
 
