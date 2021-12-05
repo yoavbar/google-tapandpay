@@ -66,7 +66,18 @@ public class GooglePayIssuer extends CordovaPlugin {
     Log.i(TAG, args.toString());
 
     this.callbackContext = callbackContext;
+    
+    if ("createWallet".equals(action)) {
+      this.cordova.getThreadPool().execute(new Runnable() {
+        @Override
+        public void run() {
+          createWallet();
+          callbackContext.success(true);
+        }
+      });
 
+      return true;
+    } else 
     if ("getTokenStatus".equals(action)) {
       this.cordova.getThreadPool().execute(new Runnable() {
         @Override
