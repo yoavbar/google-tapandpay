@@ -147,7 +147,17 @@ GooglePayIssuer.prototype.isTokenized = function (tsp, lastDigits, onSuccess, on
     exec(successCallback, errorCallback, 'GooglePayIssuer', 'isTokenized', [tsp, lastDigits]);
 };
 
+GooglePayIssuer.prototype.createWallet = function (onSuccess, onError) {
+    var errorCallback = function (obj) {
+        onError(obj);
+    };
 
+    var successCallback = function (obj) {
+        onSuccess(obj);
+    };
+
+    exec(successCallback, errorCallback, 'GooglePayIssuer', 'createWallet');
+};
 
 if (typeof module != 'undefined' && module.exports) {
     module.exports = GooglePayIssuer;
